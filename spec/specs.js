@@ -1,10 +1,14 @@
-describe('piglatin', function(){
+describe('pigLatin', function(){
   it("should return a string", function(){
-    expect(typeof(piglatin("test string"))).to.eq('string');
+    expect(typeof(pigLatin("are"))).to.eq('string');
   });
 
   it("should add 'ay' to the end of the word if it starts with a vowel", function(){
-    expect(piglatin("are")).to.eq("areay");
+    expect(pigLatin("are")).to.eq("areay");
+  });
+
+  it("should move all first consecutive consonants to the end and add 'ay'", function(){
+    expect(pigLatin("strong")).to.eq("ongstray");
   });
 });
 
@@ -15,5 +19,9 @@ describe("startsWithVowel", function() {
 
   it("should identify words starting with a consonant", function() {
     expect(startsWithVowel("bummer")).to.equal(false);
+  });
+
+  it("should identify words starting with o", function() {
+    expect(startsWithVowel("on")).to.equal(true);
   });
 });
